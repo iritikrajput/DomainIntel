@@ -71,4 +71,4 @@ DNSIntel is lightweight, fast, and designed to be extended easily.
 
 ---
 
-Just tell me!
+Just tell me at netscafeeee@gmail.com
