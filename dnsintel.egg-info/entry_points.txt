@@ -1,0 +1,2 @@
+[console_scripts]
+dnsintel = dnsintel.cli:main

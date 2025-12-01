@@ -1,0 +1,70 @@
+{
+  "description": "Example verification rules for domain security checks",
+  "rules": {
+    "dns": {
+      "min_a_records": 1,
+      "recommended_a_records": 2,
+      "require_aaaa": false,
+      "require_mx": false,
+      "min_nameservers": 2
+    },
+    "email_security": {
+      "require_spf": true,
+      "require_dmarc": true,
+      "require_dkim": false,
+      "spf_mechanisms": [
+        "ip4",
+        "ip6",
+        "include",
+        "all"
+      ],
+      "dmarc_policies": [
+        "none",
+        "quarantine",
+        "reject"
+      ]
+    },
+    "ssl": {
+      "require_valid_certificate": true,
+      "min_days_before_expiry": 30,
+      "allowed_protocols": [
+        "TLSv1.2",
+        "TLSv1.3"
+      ],
+      "min_key_size": 2048
+    },
+    "security_headers": {
+      "recommended": [
+        "Strict-Transport-Security",
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "Content-Security-Policy"
+      ]
+    },
+    "blacklists": {
+      "check_dns_blacklists": true,
+      "rbls": [
+        "zen.spamhaus.org",
+        "bl.spamcop.net",
+        "dnsbl.sorbs.net"
+      ]
+    }
+  },
+  "thresholds": {
+    "verification_score": {
+      "excellent": 90,
+      "good": 70,
+      "fair": 50,
+      "poor": 0
+    }
+  },
+  "recommendations": {
+    "no_spf": "Add an SPF record to prevent email spoofing",
+    "no_dmarc": "Add a DMARC record for email authentication and reporting",
+    "single_a_record": "Consider adding multiple A records for redundancy",
+    "ssl_expiring": "SSL certificate is expiring soon, renew it",
+    "invalid_ssl": "SSL certificate is invalid or expired",
+    "single_nameserver": "Consider using at least 2 nameservers for redundancy"
+  }
+}
+
