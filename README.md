@@ -231,7 +231,7 @@ This tool is intended for legitimate security research and system administration
 
 ## Author
 
-Your Name - your.email@example.com
+Your Name - netscafeeee@gmail.com
 
 ## Acknowledgments
 
