@@ -4,7 +4,7 @@ Version: 0.1.0
 Summary: A comprehensive domain intelligence and reconnaissance tool
 Home-page: https://github.com/yourusername/domainintel
 Author: Your Name
-Author-email: Your Name <your.email@example.com>
+Author-email: Ritik Rajput <netscafeeee@gmail.com>
 License: MIT
 Project-URL: Homepage, https://github.com/yourusername/domainintel
 Project-URL: Documentation, https://github.com/yourusername/domainintel#readme
@@ -277,3 +277,4 @@ Your Name - your.email@example.com
 - [dnspython](https://www.dnspython.org/) - DNS toolkit for Python
 - [python-whois](https://pypi.org/project/python-whois/) - WHOIS lookup library
 - [colorama](https://pypi.org/project/colorama/) - Cross-platform colored terminal text
+# DomainIntel
