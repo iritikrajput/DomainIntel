@@ -4,12 +4,12 @@ A comprehensive domain intelligence and reconnaissance tool for security profess
 
 ## Features
 
-- 🔍 **DNS Lookup** - Query various DNS record types (A, AAAA, MX, NS, TXT, CNAME, SOA, etc.)
-- 📧 **MX Records Check** - Dedicated mail server verification with SPF and DMARC analysis
-- 🌐 **WHOIS Lookup** - Retrieve domain registration and ownership information
-- 🔒 **SSL Certificate Checker** - Analyze SSL/TLS certificates and expiration dates
-- 📍 **IP Geolocation** - Get geographic and network information about IP addresses
-- ✅ **Domain Verification** - Validate domain configurations and security settings
+- **DNS Lookup** - Query various DNS record types (A, AAAA, MX, NS, TXT, CNAME, SOA, etc.)
+- **MX Records Check** - Dedicated mail server verification with SPF and DMARC analysis
+- **WHOIS Lookup** - Retrieve domain registration and ownership information
+- **SSL Certificate Checker** - Analyze SSL/TLS certificates and expiration dates
+- **IP Geolocation** - Get geographic and network information about IP addresses
+- **Domain Verification** - Validate domain configurations and security settings
 
 ## Installation
 
@@ -231,11 +231,12 @@ This tool is intended for legitimate security research and system administration
 
 ## Author
 
-Your Name - your.email@example.com
+Your Name - RITIK RAJPUT,
+
+Contact me at netscafeeee@gmail.com
 
 ## Acknowledgments
 
 - [dnspython](https://www.dnspython.org/) - DNS toolkit for Python
 - [python-whois](https://pypi.org/project/python-whois/) - WHOIS lookup library
 - [colorama](https://pypi.org/project/colorama/) - Cross-platform colored terminal text
-# DomainIntel
