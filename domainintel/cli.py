@@ -6,7 +6,7 @@ Command-line interface for DomainIntel.
 import argparse
 import sys
 
-from domainintel.core import dns_lookup, whois_lookup, ssl_checker, ip_info, verifier, subdomain_finder
+from domainintel.core import dns_lookup, whois_lookup, ssl_checker, ip_info, verifier, subdomain_finder, risk_analyzer
 from domainintel.utils.output import print_header, print_success, print_error, print_info, print_warning
 from domainintel.utils.validators import is_valid_domain, is_valid_ip
 
@@ -87,6 +87,15 @@ def setup_parser() -> argparse.ArgumentParser:
         type=int,
         default=10,
         help="Number of threads for DNS resolution (default: 10)"
+    )
+
+    # Phishing risk analysis command
+    risk_parser = subparsers.add_parser("risk", help="Analyze phishing risk probability")
+    risk_parser.add_argument("domain", help="Domain name to analyze")
+    risk_parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Show detailed analysis information"
     )
 
     # All-in-one command
@@ -279,6 +288,24 @@ def handle_subdomains_command(args: argparse.Namespace) -> int:
         return 1
 
 
+def handle_risk_command(args: argparse.Namespace) -> int:
+    """Handle phishing risk analysis command."""
+    if not is_valid_domain(args.domain):
+        print_error(f"Invalid domain name: {args.domain}")
+        return 1
+
+    print_header(f"Phishing Risk Analysis: {args.domain}")
+    print_info("Analyzing domain for phishing indicators... This may take a moment.\n")
+    
+    try:
+        results = risk_analyzer.analyze_risk(args.domain, verbose=args.verbose)
+        risk_analyzer.display_results(results, verbose=args.verbose)
+        return 0
+    except Exception as e:
+        print_error(f"Risk analysis failed: {e}")
+        return 1
+
+
 def handle_all_command(args: argparse.Namespace) -> int:
     """Handle all-in-one command."""
     target = args.target
@@ -354,6 +381,7 @@ def main() -> None:
         "ip": handle_ip_command,
         "verify": handle_verify_command,
         "subdomains": handle_subdomains_command,
+        "risk": handle_risk_command,
         "all": handle_all_command,
     }
 
